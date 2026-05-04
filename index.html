@@ -6,175 +6,204 @@
     <title>Paul Revere MS | Academic Pentathlon</title>
     <style>
         :root {
-            --primary-blue: #003366; /* School Navy */
-            --accent-gold: #FFD700;  /* School Gold */
-            --light-bg: #f4f7f6;
-            --text-dark: #333;
+            --school-green: #1B4D3E; /* Hunter Green */
+            --school-black: #000000;
+            --light-mist: #f8faf9;
+            --text-main: #2d3436;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--light-bg);
+            line-height: 1.7;
+            color: var(--text-main);
+            background-color: #ffffff;
             scroll-behavior: smooth;
         }
 
         /* Header & Hero Section */
         header {
-            background: var(--primary-blue);
+            background: linear-gradient(135deg, var(--school-black) 0%, var(--school-green) 100%);
             color: white;
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
         }
 
         .hero-img-placeholder {
             width: 100%;
-            height: 350px;
-            background: #cbd5e0;
+            height: 400px;
+            background: #e0e0e0;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 20px auto 0;
-            border-radius: 12px;
-            max-width: 900px;
-            font-style: italic;
-            color: #666;
+            margin: 30px auto 0;
+            border-radius: 8px;
+            max-width: 1000px;
+            border: 2px dashed #ccc;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Navigation */
         nav {
             background: #fff;
-            padding: 1rem;
+            padding: 1.2rem;
             position: sticky;
             top: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
             z-index: 1000;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--primary-blue);
-            font-weight: bold;
+            color: var(--school-black);
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            color: var(--accent-gold);
+            color: var(--school-green);
         }
 
         /* Content Sections */
         section {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1100px;
             margin: auto;
         }
 
         h2 {
             text-align: center;
-            color: var(--primary-blue);
+            color: var(--school-green);
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
         }
 
         /* Benefits Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .card {
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--accent-gold);
-            transition: transform 0.3s ease;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 6px solid var(--school-green);
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--school-black);
+            margin-top: 0;
         }
 
         /* Theme Section Styles */
         .theme-box {
-            background: var(--primary-blue);
+            background: var(--school-green);
             color: white;
-            padding: 3rem;
-            border-radius: 15px;
+            padding: 4rem;
+            border-radius: 20px;
             text-align: center;
+            box-shadow: 0 20px 40px rgba(27, 77, 62, 0.2);
         }
 
         footer {
-            background: var(--primary-blue);
-            color: white;
+            background: var(--school-black);
+            color: #bdc3c7;
             text-align: center;
-            padding: 3rem;
+            padding: 4rem 2rem;
             margin-top: 4rem;
+        }
+
+        footer strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Paul Revere Middle School</h1>
-    <p style="font-size: 1.5rem;">Academic Pentathlon Team</p>
-    <div class="hero-img-placeholder"> [ INSERT TEAM GROUP PHOTO HERE ] </div>
+    <h1 style="font-size: 3rem; margin: 0;">PRMS PATRIOTS</h1>
+    <p style="font-size: 1.4rem; opacity: 0.9; font-weight: 300;">Academic Pentathlon Excellence</p>
+    <div class="hero-img-placeholder"> [ Upload Team Banner Here ] </div>
 </header>
 
 <nav>
-    <a href="#about">The Program</a>
-    <a href="#benefits">Benefits</a>
-    <a href="#theme">Current Theme</a>
+    <a href="#about">The Mission</a>
+    <a href="#benefits">The Advantage</a>
+    <a href="#theme">2025-26 Season</a>
 </nav>
 
 <section id="about">
-    <h2>Academic Excellence</h2>
-    <p>The Academic Pentathlon is a five-event scholastic competition for middle school students. It challenges students to dive deep into five core subjects: Literature, Mathematics, Fine Arts, Science, and Social Science. At Paul Revere, we foster a culture of curiosity and rigorous study to prepare our students for local and national success.</p>
-    <div class="hero-img-placeholder" style="height: 250px;"> [ INSERT COMPETITION IMAGE HERE ] </div>
+    <h2>Academic Rigor & Leadership</h2>
+    <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
+        The Paul Revere Academic Pentathlon team isn't just about winning medals; it's about mastering the art of learning. 
+        By diving deep into Literature, Math, Fine Arts, Science, and Social Science, our Patriots build the intellectual stamina 
+        required for high school and beyond.
+    </p>
+    <div class="hero-img-placeholder" style="height: 300px;"> [ Competition Action Shot ] </div>
 </section>
 
-<section id="benefits" style="background: #eef2f3; max-width: 100%;">
+<section id="benefits" style="background: var(--light-mist); max-width: 100%;">
     <div style="max-width: 1100px; margin: auto;">
-        <h2>Why Join the Team?</h2>
+        <h2>The Patriot Advantage</h2>
         <div class="grid">
             <div class="card">
-                <h3>Boost Your GPA</h3>
-                <p>Students develop advanced study habits and critical thinking skills that translate directly to higher performance in all school subjects.</p>
+                <h3>Collegiate Prep</h3>
+                <p>Master the "Deep Dive" study method. Our members develop the level of critical thinking usually reserved for honors college seminars.</p>
             </div>
             <div class="card">
-                <h3>Everyone Competes</h3>
-                <p>The program is unique because teams must include students from all GPA levels (Honor, Scholastic, and Varsity), ensuring a diverse and inclusive environment.</p>
+                <h3>The Power of GPAs</h3>
+                <p>Our team is built on diversity. We recruit students across Honor, Scholastic, and Varsity GPA tiers because every perspective makes us stronger.</p>
             </div>
             <div class="card">
-                <h3>Team Camaraderie</h3>
-                <p>Beyond the books, you'll join a community of like-minded peers, attend study sessions, and build lasting friendships.</p>
+                <h3>Academic Brotherhood</h3>
+                <p>Join a tight-knit community of scholars. We study together, compete together, and grow together as a unified Paul Revere family.</p>
             </div>
             <div class="card">
-                <h3>Future Benefits</h3>
-                <p>Competing in the pentathlon can look good on applications to high school, college, or even universities across the whole country.</p>
+                <h3>Future Portfolio</h3>
+                <p>Standing out on applications starts here. Participation shows high schools and universities that you are committed to elite academic performance.</p>
+            </div>
         </div>
     </div>
 </section>
 
 <section id="theme">
     <div class="theme-box">
-        <h2>2025/2026 Theme: The Roaring Twenties</h2>
-        <p>This year, our team explores the excitement and innovation of the 1920s. We are studying the science of electricity, the art of the Jazz Age, and historical turning points that shaped the modern world.</p>
-        <div class="hero-img-placeholder" style="background: rgba(255,255,255,0.1); color: #fff;"> [ INSERT THEME LOGO HERE ] </div>
+        <h2 style="color: white; margin-top: 0;">Season Theme: The Roaring Twenties</h2>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">
+            From the jazz-filled streets of New York to the scientific breakthroughs in electricity, we are exploring a decade of 
+            unparalleled change. Join us as we dissect the art, science, and history of this transformative era.
+        </p>
+        <div class="hero-img-placeholder" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff;"> 
+            [ 1920s Theme Visual ] 
+        </div>
     </div>
 </section>
 
 <footer>
     <p><strong>Paul Revere Charter Middle School & Magnet Center</strong></p>
     <p>1450 Allenford Ave, Los Angeles, CA 90049</p>
-    <p>&copy; 2024 Academic Pentathlon Team</p>
+    <p>&copy; 2024 Paul Revere Academic Pentathlon | All Rights Reserved</p>
 </footer>
 
 </body>
