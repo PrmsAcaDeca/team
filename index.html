@@ -22,17 +22,47 @@
             scroll-behavior: smooth;
         }
 
+        /* Collage Styles */
+        .collage-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 200px);
+            gap: 15px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+
+        .collage-item {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .collage-item:hover {
+            transform: scale(1.02);
+        }
+
+        /* Large Feature Image */
+        .item-big {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
         /* Header & Hero Section */
         header {
             background: linear-gradient(135deg, var(--school-black) 0%, var(--school-green) 100%);
             color: white;
-            padding: 6rem 2rem;
+            padding: 4rem 1rem;
             text-align: center;
         }
 
         .hero-img-placeholder {
             width: 100%;
-            height: 400px;
+            height: 300px;
             background: #e0e0e0;
             display: flex;
             align-items: center;
@@ -44,6 +74,18 @@
             color: #888;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        /* Responsive Collage for Mobile */
+        @media (max-width: 768px) {
+            .collage-container {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 150px);
+            }
+            .item-big {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
         }
 
         /* Navigation */
@@ -143,9 +185,17 @@
 <body>
 
 <header>
-    <h1 style="font-size: 3rem; margin: 0;">PRMS PATRIOTS</h1>
-    <p style="font-size: 1.4rem; opacity: 0.9; font-weight: 300;">Academic Pentathlon Excellence</p>
-    <div class="hero-img-placeholder"> [ Upload Team Banner Here ] </div>
+    <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -2px;">PRMS PATRIOTS</h1>
+    <p style="font-size: 1.4rem; opacity: 0.9; font-weight: 300; margin-top: 10px;">Academic Pentathlon Excellence</p>
+    
+    <div class="collage-container">
+        <!-- Replace URLs below with your team photos -->
+        <img src="https://placeholder.com" alt="Team" class="collage-item item-big">
+        <img src="https://placeholder.com" alt="Medals" class="collage-item">
+        <img src="https://placeholder.com" alt="Study Session" class="collage-item">
+        <img src="https://placeholder.com" alt="Competition" class="collage-item">
+        <img src="https://placeholder.com" alt="Award" class="collage-item">
+    </div>
 </header>
 
 <nav>
@@ -161,7 +211,7 @@
         By diving deep into Literature, Math, Fine Arts, Science, and Social Science, our Patriots build the intellectual stamina 
         required for high school and beyond.
     </p>
-    <div class="hero-img-placeholder" style="height: 300px;"> [ Competition Action Shot ] </div>
+    <div class="hero-img-placeholder"> [ Competition Action Shot ] </div>
 </section>
 
 <section id="benefits" style="background: var(--light-mist); max-width: 100%;">
