@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="icon.png">
     <title>Paul Revere MS | Academic Pentathlon</title>
-    
-    <!-- Swiper CSS for the Slider -->
-    <link rel="stylesheet" href="https://jsdelivr.net" />
-
     <style>
         :root {
             --school-green: #1B4D3E;
@@ -18,74 +14,82 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             line-height: 1.7;
             color: var(--text-main);
             background-color: #ffffff;
             scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevents side-scrolling from slider */
+            overflow-x: hidden;
         }
 
-        /* --- DISNEY+ STYLE SLIDER STYLES --- */
-        .header-slider-container {
-            padding: 20px 0 40px;
+        header {
+            background: linear-gradient(135deg, var(--school-black) 0%, var(--school-green) 100%);
+            color: white;
+            padding: 4rem 1rem 2rem;
+            text-align: center;
+        }
+
+        /* --- NATIVE SLIDER CSS --- */
+        .slider-wrap {
+            position: relative;
             width: 100%;
             background: linear-gradient(135deg, var(--school-black) 0%, var(--school-green) 100%);
-        }
-
-        .swiper {
-            width: 100%;
-            padding-top: 20px;
             padding-bottom: 50px;
-        }
-
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            width: 80%; /* Shows the 'peek' of next/prev slides */
-            height: 400px;
-            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.5s ease, filter 0.5s ease;
-            filter: brightness(0.5); /* Dim side slides */
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+        }
+
+        .slide {
+            flex: 0 0 70%; /* Slide width */
+            margin: 0 15px;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.6s ease;
+            filter: brightness(0.4);
             transform: scale(0.9);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* The active (center) slide */
-        .swiper-slide-active {
+        .slide.active {
             filter: brightness(1);
-            transform: scale(1.05); /* Pop out effect */
-            border: 2px solid rgba(255,255,255,0.3);
+            transform: scale(1);
         }
 
-        .swiper-slide img {
+        .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /* Custom Dots */
-        .swiper-pagination-bullet {
-            background: #fff;
-            opacity: 0.5;
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
         }
-        .swiper-pagination-bullet-active {
-            background: #fff;
-            opacity: 1;
-            width: 20px;
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: white;
+            width: 25px;
             border-radius: 5px;
         }
 
-        /* Existing Styles */
-        header {
-            background: linear-gradient(135deg, var(--school-black) 0%, var(--school-green) 100%);
-            color: white;
-            padding: 4rem 1rem 0;
-            text-align: center;
-        }
-
+        /* --- REST OF PAGE --- */
         nav {
             background: #fff;
             padding: 1.2rem;
@@ -98,33 +102,16 @@
             z-index: 1000;
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--school-black);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover { color: var(--school-green); }
-
+        nav a { text-decoration: none; color: var(--school-black); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; }
         section { padding: 6rem 2rem; max-width: 1100px; margin: auto; }
-        h2 { text-align: center; color: var(--school-green); font-size: 2.5rem; margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: -1px; }
-        
+        h2 { text-align: center; color: var(--school-green); font-size: 2.5rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 6px solid var(--school-green); transition: all 0.3s ease; }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-        
-        .theme-box { background: var(--school-green); color: white; padding: 4rem; border-radius: 20px; text-align: center; box-shadow: 0 20px 40px rgba(27, 77, 62, 0.2); }
-        .hero-img-placeholder { width: 100%; height: 300px; background: #e0e0e0; display: flex; align-items: center; justify-content: center; margin: 30px auto 0; border-radius: 8px; max-width: 1000px; border: 2px dashed #ccc; color: #888; text-transform: uppercase; }
-
-        footer { background: var(--school-black); color: #bdc3c7; text-align: center; padding: 4rem 2rem; margin-top: 4rem; }
-        footer strong { color: #fff; display: block; margin-bottom: 10px; }
+        .card { background: white; padding: 2.5rem; border-radius: 12px; border-top: 6px solid var(--school-green); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .theme-box { background: var(--school-green); color: white; padding: 4rem; border-radius: 20px; text-align: center; }
+        footer { background: var(--school-black); color: #bdc3c7; text-align: center; padding: 4rem 2rem; }
 
         @media (max-width: 768px) {
-            .swiper-slide { height: 250px; width: 90%; }
+            .slide { flex: 0 0 85%; height: 250px; }
         }
     </style>
 </head>
@@ -132,33 +119,17 @@
 
 <header>
     <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -2px;">PRMS PATRIOTS</h1>
-    <p style="font-size: 1.4rem; opacity: 0.9; font-weight: 300; margin-top: 10px;">Academic Pentathlon Excellence</p>
+    <p style="font-size: 1.4rem; opacity: 0.9; margin-top: 10px;">Academic Pentathlon Excellence</p>
 </header>
 
-<div class="header-slider-container">
-    <!-- Swiper Structure -->
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <!-- SLIDE 1 -->
-            <div class="swiper-slide">
-                <img src="https://unsplash.com" alt="Team Photo">
-            </div>
-            <!-- SLIDE 2 -->
-            <div class="swiper-slide">
-                <img src="https://unsplash.com" alt="Medals">
-            </div>
-            <!-- SLIDE 3 -->
-            <div class="swiper-slide">
-                <img src="https://unsplash.com" alt="Study">
-            </div>
-            <!-- SLIDE 4 -->
-            <div class="swiper-slide">
-                <img src="https://unsplash.com" alt="Competition">
-            </div>
-        </div>
-        <!-- Pagination Dots -->
-        <div class="swiper-pagination"></div>
+<div class="slider-wrap">
+    <div class="slider-track" id="track">
+        <div class="slide"><img src="https://placeholder.com" alt="1"></div>
+        <div class="slide"><img src="https://placeholder.com" alt="2"></div>
+        <div class="slide"><img src="https://placeholder.com" alt="3"></div>
+        <div class="slide"><img src="https://placeholder.com" alt="4"></div>
     </div>
+    <div class="dots" id="dots"></div>
 </div>
 
 <nav>
@@ -169,65 +140,71 @@
 
 <section id="about">
     <h2>Academic Rigor & Leadership</h2>
-    <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
-        The Paul Revere Academic Pentathlon team isn't just about winning medals; it's about mastering the art of learning. 
-    </p>
-    <div class="hero-img-placeholder"> [ Competition Action Shot ] </div>
+    <p style="text-align: center; font-size: 1.2rem;">The Paul Revere team focuses on mastering elite academic performance.</p>
 </section>
 
-<section id="benefits" style="background: var(--light-mist); max-width: 100%;">
+<section id="benefits" style="background: var(--light-mist); max-width:100%">
     <div style="max-width: 1100px; margin: auto;">
-        <h2>The Benefits Of Joining</h2>
+        <h2>The Benefits</h2>
         <div class="grid">
-            <div class="card">
-                <h3>Collegiate Prep</h3>
-                <p>Master the "Deep Dive" study method.</p>
-            </div>
-            <div class="card">
-                <h3>Academic Diversity</h3>
-                <p>We recruit across all GPA tiers.</p>
-            </div>
-            <div class="card">
-                <h3>Future Portfolio</h3>
-                <p>Standing out on applications starts here.</p>
-            </div>
+            <div class="card"><h3>Collegiate Prep</h3><p>Master the "Deep Dive" study method.</p></div>
+            <div class="card"><h3>Academic Diversity</h3><p>Open to all GPA tiers.</p></div>
+            <div class="card"><h3>Future Portfolio</h3><p>Commit to elite performance.</p></div>
         </div>
     </div>
 </section>
 
 <section id="theme">
     <div class="theme-box">
-        <h2 style="color: white; margin-top: 0;">Season Theme: The Roaring Twenties</h2>
-        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">
-            Exploring a decade of unparalleled change.
-        </p>
+        <h2>Season Theme: The Roaring Twenties</h2>
+        <p>Exploring a decade of transformation.</p>
     </div>
 </section>
 
 <footer>
-    <p><strong>Paul Revere Charter Middle School & Magnet Center</strong></p>
+    <p><strong>Paul Revere Charter Middle School</strong></p>
     <p>1450 Allenford Ave, Los Angeles, CA</p>
 </footer>
 
-<!-- Swiper JS -->
-<script src="https://jsdelivr.net"></script>
-
-<!-- Initialize Swiper -->
 <script>
-    var swiper = new Swiper(".mySwiper", {
-        loop: true,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        spaceBetween: 30,
-        autoplay: {
-            delay: 3500,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
+    const track = document.getElementById('track');
+    const slides = Array.from(track.children);
+    const dotContainer = document.getElementById('dots');
+    let index = 0;
+
+    slides.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotContainer.appendChild(dot);
     });
+
+    const dots = Array.from(dotContainer.children);
+
+    function goToSlide(n) {
+        index = n;
+        const slideWidth = slides[0].offsetWidth + 30;
+        const centerOffset = (window.innerWidth - slideWidth) / 2;
+        const move = -index * slideWidth + centerOffset;
+        
+        track.style.transform = `translateX(${move}px)`;
+        
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+
+    function autoPlay() {
+        index = (index + 1) % slides.length;
+        goToSlide(index);
+    }
+
+    window.addEventListener('resize', () => goToSlide(index));
+    setInterval(autoPlay, 4000);
+    goToSlide(0);
 </script>
 
 </body>
